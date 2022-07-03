@@ -19,5 +19,5 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('nlpApp.urls')),
-    path('summariser/', include('textsummariser.urls'))
+    path('process/', include('textsummariser.urls')),
 ]
