@@ -148,6 +148,12 @@
                 <img class="w-100" id="myImg" src="{% static 'images/mindmap.png' %}"
                 {% endif %}
             </div>
+            <div class="col-md-12 my-5">
+              <label>Multi Questions</label>
+              {% if mindmap %}
+              <textarea readonly class="form-control" rows="10">{{ result_text }}</textarea>
+              {% endif %}
+            </div>
         </div>
     </div>
     <script>
