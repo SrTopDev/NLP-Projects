@@ -5,6 +5,7 @@ from .summariser import generate_summary
 from .mapgeist.api import text_mind_map
 from .mapgeist.api.visualization import visualize_tree_2D
 from .multiquestion import *
+from .limerick import *
 # Create your views here.
 
 def summariser(requests):
@@ -58,10 +59,13 @@ def summariser(requests):
                 result_text += "\t" + optionchoices[idx] + ")" + " " + str(choice) + "\n"
             result_text += "\nMore options: " +  str(choices[4:20]) + "\n\n"
             index = index + 1
+        limerick_text = fnLimerick(input_data)
+
         context = {
             'summerize': out_put,
             'original' : input_data,
             'mindmap': "1",
-            "result_text": result_text
+            "result_text": result_text,
+            "limerick_text": limerick_text
         }
         return HttpResponse(template.render(context, requests))
