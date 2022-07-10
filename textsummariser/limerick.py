@@ -42,5 +42,5 @@ def fnLimerick(input_text):
                 g_7.append(span.text)
     result_text = ""
     for i in range(0, 5):
-        result_text += "%s\n%s\n%s" %(random.choice(g_5),random.choice(g_7),random.choice(g_5))
+        result_text += "%s\n%s\n%s\n\n" %(random.choice(g_5),random.choice(g_7),random.choice(g_5))
     return result_text
