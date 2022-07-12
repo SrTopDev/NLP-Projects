@@ -17,14 +17,14 @@ def summariser(requests):
         visualize_tree_2D(mindmap, root, 'static/images/mindmap.png')
 
         keywords = get_nouns_multipartite(input_data)
-        model = Summarizer()
-        result = model(input_data, min_length=30, max_length = 500 , ratio = 0.4)
-        summarized_text = model(input_data, min_length=60, max_length = 500 , ratio = 0.4)
+        # model = Summarizer()
+        # result = model(input_data, min_length=30, max_length = 500 , ratio = 0.4)
+        # summarized_text = model(input_data, min_length=60, max_length = 500 , ratio = 0.4)
         filtered_keys=[]
         for keyword in keywords:
-            if keyword.lower() in summarized_text.lower():
+            if keyword.lower() in input_data.lower():
                 filtered_keys.append(keyword)
-        sentences = tokenize_sentences(summarized_text)
+        sentences = tokenize_sentences(input_data)
         keyword_sentence_mapping = get_sentences_for_keyword(filtered_keys, sentences)
         key_distractor_list = {}
         for keyword in keyword_sentence_mapping:
@@ -57,7 +57,7 @@ def summariser(requests):
             optionchoices = ['a','b','c','d']
             for idx,choice in enumerate(top4choices):
                 result_text += "\t" + optionchoices[idx] + ")" + " " + str(choice) + "\n"
-            result_text += "\nMore options: " +  str(choices[4:20]) + "\n\n"
+            result_text += "\nMore options: " +  str(choices[4:20]) + "\nCorrect Answer is " + str(each) + "\n\n"
             index = index + 1
         limerick_text = fnLimerick(input_data)
 
