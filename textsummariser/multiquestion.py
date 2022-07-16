@@ -9,7 +9,7 @@ import random
 from pywsd.similarity import max_similarity
 from pywsd.lesk import adapted_lesk
 from nltk.corpus import wordnet as wn
-from summarizer import Summarizer
+
 
 def get_nouns_multipartite(text):
     out=[]
